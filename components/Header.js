@@ -10,6 +10,7 @@ const Header = () => {
           src="/bayc-logo.webp"
           alt="bayc logo"
           className=" absolute w-72 h-20 top-6 mx-auto md:left-[37%]"
+          data-aos="fade-down"
         />
       </div>
       <div className=" hidden w-1/2 md:p-2 md:inline-flex justify-end items-end space-x-5">

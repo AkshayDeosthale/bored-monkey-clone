@@ -2,8 +2,10 @@ import React from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useAddress, useDisconnect, useMetamask } from "@thirdweb-dev/react";
 import { useNFTDrop, useEditionDrop } from "@thirdweb-dev/react";
+import { useRouter } from "next/router";
 
 const welcom = () => {
+  const router = useRouter();
   const metamask = useMetamask();
   const address = useAddress();
   const disconnect = useDisconnect();
@@ -22,6 +24,14 @@ const welcom = () => {
       }
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  const handleMarket = () => {
+    if (address) {
+      router.push("/market");
+    } else {
+      alert("You need to login first");
     }
   };
 
@@ -59,15 +69,17 @@ const welcom = () => {
           )}
         </div>
       </div>
-      <div className="w-1/4 h-full flex  justify-center items-center animate-pulse hover:bg-white hover:text-black transition-all duration-500">
+      <div
+        onClick={handleMarket}
+        className="active:scale-90 w-1/4 cursor-pointer h-full flex  justify-center items-center animate-pulse hover:bg-white hover:text-black transition-all duration-500"
+      >
         <p className="-rotate-90 flex space-x-2 items-center">
           <span>
             <AiOutlineArrowLeft />
           </span>
           {"  "}
-          <span>Mint</span>
-          <span>Your</span>
-          <span>NFT</span>
+          <span>Visit</span>
+          <span>Market</span>
         </p>
       </div>
     </div>

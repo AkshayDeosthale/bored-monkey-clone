@@ -4,7 +4,7 @@ import { FaDiscord, FaTwitter } from "react-icons/fa";
 
 const SocialsAndDetails = () => {
   return (
-    <div>
+    <div data-aos="zoom-in-right">
       <div className=" flex space-x-5 justify-center items-center sm:pt-12  ">
         <span>
           <AiOutlineYoutube className="p-0 hover:text-yellow-500 hover:transition-all duration-300" />
