@@ -3,7 +3,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 
 const GetOnTheList = () => {
   return (
-    <div className="flex flex-col justify-center items-center space-y-5 py-5 pt-28 md:pt-0 ">
+    <div className="flex flex-col justify-center items-center space-y-5 py-5 pt-8 md:pt-0 ">
       <p>GET ON THE LIST</p>
       <div className="flex  items-center">
         <input
