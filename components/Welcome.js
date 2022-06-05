@@ -13,15 +13,6 @@ const welcom = () => {
 
   const mint = async () => {
     try {
-      if (nftDrop && address) {
-        const quantity = 1; // how many unique NFTs you want to claim
-
-        const tx = await nftDrop.claimTo(address, 0, quantity);
-        console.log(tx);
-        const receipt = tx.receipt; // the transaction receipt
-        const claimedTokenId = tx.id; // the id of the NFT claimed
-        const claimedNFT = await tx.data(); // (optional) get the claimed NFT metadata
-      }
     } catch (error) {
       console.error(error);
     }
