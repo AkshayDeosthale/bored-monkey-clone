@@ -3,6 +3,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useAddress, useDisconnect, useMetamask } from "@thirdweb-dev/react";
 import { useNFTDrop, useEditionDrop } from "@thirdweb-dev/react";
 import { useRouter } from "next/router";
+import { ToastContainer, toast } from 'react-toastify';
 
 const welcom = () => {
   const router = useRouter();
@@ -22,19 +23,29 @@ const welcom = () => {
     if (address) {
       router.push("/market");
     } else {
-      alert("You need to login first");
+      toast.error('Connect Metamask wallet to proceed', {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme:"colored",
+       
+        });
     }
   };
 
   return (
-    <div className="flex h-full ">
+    <div className="flex h-full  ">
       <div className="flex flex-col h-full w-3/4  flex-wrap border-b-2 ">
         <p className="text-4xl font-bold italic p-4">
           Welcome to bored ape yatch club
         </p>
         <div className="px-2">
           {address ? (
-            <div className="flex justify-around items-center">
+            <div className="flex  justify-around items-center">
               <button
                 className="bg-red-500  text-white py-4 px-2 rounded-md font-bold hover:bg-red-600 transition-all duration-500 active:scale-95"
                 onClick={disconnect}
