@@ -12,6 +12,8 @@ import MarketHeader from "../components/MarketHeader";
 import MarketBody from "../components/MarketBody";
 
 const Market = () => {
+  
+  
   const router = useRouter();
   const address = useAddress();
   const marketplace = useMarketplace(
