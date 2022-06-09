@@ -19,10 +19,13 @@ const Market = () => {
   const marketplace = useMarketplace(
     process.env.NEXT_PUBLIC_MARKETPLACE_ADDRESS
   );
-  // const marketplace = useMarketplace("0x2C89805B6E1183d96d294E63C6e97cF3b08f6638")
+ 
+  
   const nftCollection = useNFTCollection(
     "0x75eEfE860803B1481E2415Bacc88ff23d5ec55a6"
   );
+
+  console.log('nftCollection',nftCollection);
   const disconnect = useDisconnect();
 
   const [listings, setlistings] = useState([]);
@@ -37,7 +40,6 @@ const Market = () => {
   const getListing = async () => {
     try {
       if (!address) return;
-      console.log("about to fetch list");
       const list = await marketplace.getActiveListings();
       console.log(list);
       setlistings(list);
