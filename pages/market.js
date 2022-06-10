@@ -23,6 +23,8 @@ const Market = () => {
     process.env.NEXT_PUBLIC_MARKETPLACE_ADDRESS
   );
 
+
+
   useEffect(() => {
     if (!address) router.replace("/");
   }, [address]);
@@ -38,13 +40,14 @@ const [loading, setloading] = useState(false);
 const getListings = async () => {
   try {
     if (!address) return;
+
     const list = await marketplace.getActiveListings();
     console.log(list);
-    setListings(list);
-    setLoading(false);
+    
+    setloading(false);
   } catch (err) {
     console.error(err);
-    alert("Error fetching listings");
+
   }
 };
   useEffect(() => {

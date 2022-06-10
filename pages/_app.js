@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     
-<ThirdwebProvider desiredChainId={ChainId.Mainnet}>
+<ThirdwebProvider desiredChainId={ChainId.Mumbai}>
 <ToastContainer 
    position="top-right"
    autoClose={1000}
