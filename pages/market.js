@@ -33,7 +33,8 @@ const Market = () => {
 
  
 const disconnect = useDisconnect();
-const [loading, setloading] = useState(false);
+
+const [list, setlist] = useState([])
 
 
 
@@ -42,8 +43,9 @@ const getListings = async () => {
     if (!address) return;
 
     const list = await marketplace.getActiveListings();
-    console.log(list);
-    
+   
+    setlist(list)
+  
     setloading(false);
   } catch (err) {
     console.error(err);
@@ -55,22 +57,14 @@ const getListings = async () => {
   }, []);
 
   return (
-    <>
-      {loading ? (
-        <div class=" h-screen flex items-center justify-center ">
-          <div class="w-40 h-40 border-t-4 border-b-4 border-green-900 rounded-full animate-spin shadow-md shadow-blue-500"></div>
-        </div>
-      ) : (
-        <div className=" text-white h-auto" data-aos="fade-up">
+    <div className=" text-white h-auto" data-aos="fade-up">
           <Head>
             <title>BAYC Market</title>
             <link rel="icon" href="/titleIcon.ico" />
           </Head>
           <MarketHeader address={address} disconnect={disconnect} />
-          <MarketBody />
+          <MarketBody list={list} />
         </div>
-      )}
-    </>
   );
 };
 
