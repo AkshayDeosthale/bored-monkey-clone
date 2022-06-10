@@ -7,7 +7,7 @@ import {
   useMetamask,
   useNFTCollection,
 } from "@thirdweb-dev/react";
-import { useRouter } from "next/router";
+import  {useRouter}  from "next/router";
 import MarketHeader from "../components/MarketHeader";
 import MarketBody from "../components/MarketBody";
 
@@ -16,40 +16,39 @@ const Market = () => {
   
   const router = useRouter();
   const address = useAddress();
+  
+
+
   const marketplace = useMarketplace(
     process.env.NEXT_PUBLIC_MARKETPLACE_ADDRESS
   );
- 
-  
-  const nftCollection = useNFTCollection(
-    "0x75eEfE860803B1481E2415Bacc88ff23d5ec55a6"
-  );
-
-  console.log('nftCollection',nftCollection);
-  const disconnect = useDisconnect();
-
-  const [listings, setlistings] = useState([]);
-  const [loading, setloading] = useState(false);
 
   useEffect(() => {
-    if (!address) {
-      router.replace("/");
-    }
+    if (!address) router.replace("/");
   }, [address]);
 
-  const getListing = async () => {
-    try {
-      if (!address) return;
-      const list = await marketplace.getActiveListings();
-      console.log(list);
-      setlistings(list);
-      setloading(false);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  
+
+ 
+const disconnect = useDisconnect();
+const [loading, setloading] = useState(false);
+
+
+
+const getListings = async () => {
+  try {
+    if (!address) return;
+    const list = await marketplace.getActiveListings();
+    console.log(list);
+    setListings(list);
+    setLoading(false);
+  } catch (err) {
+    console.error(err);
+    alert("Error fetching listings");
+  }
+};
   useEffect(() => {
-    getListing();
+    getListings();
   }, []);
 
   return (

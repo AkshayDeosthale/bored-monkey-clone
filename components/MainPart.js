@@ -5,10 +5,11 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const MainPart = () => {
   return (
-    <div className="max-w-6xl mx-auto bg-black">
+    <div className="max-w-6xl mx-auto bg-black ">
+      <div className="relative">
       <img src="/main.gif" alt="" className="object-cover w-full" />
       <div
-        className=" h-60  w-full mx-auto md:absolute md:bottom-[-60px] sm:w-[370px] lg:bottom-[75px] backdrop-blur-lg"
+        className=" h-60  w-full mx-auto md:absolute md:bottom-0 md:left-0 sm:w-[370px]  backdrop-blur-lg"
         data-aos="fade-left"
       >
         
@@ -16,6 +17,8 @@ const MainPart = () => {
    
        
       </div>
+      </div>
+      
       <div>
         <Description />
         <img

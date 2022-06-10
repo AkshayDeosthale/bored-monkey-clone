@@ -9,7 +9,7 @@ const Header = () => {
         <img
           src="/bayc-logo.webp"
           alt="bayc logo"
-          className=" absolute w-72 h-20 top-6 mx-auto md:left-[37%]"
+          className=" absolute z-20 w-72 h-20 top-6 mx-auto md:left-[37%]"
           data-aos="fade-down"
         />
       </div>
