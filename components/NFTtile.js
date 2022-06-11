@@ -4,16 +4,18 @@ import { useDispatch } from "react-redux";
 import { setUri } from "../store/uriSlice";
 import Attributes from "./Attributes";
 
-const NFTtile = ({ name, desc, image, attributes, uri, address }) => {
+const NFTtile = ({ name, desc, image, attributes, uri, address, nftInfo }) => {
   const dispatch = useDispatch();
-
-  console.log("uri", uri);
 
   return (
     <Link href={`/dynamic/${address}`}>
       <div
         className="p-4 lg:w-1/4 md:w-1/2 hover:shadow-lg hover:transition-all duration-300"
-        onClick={() => dispatch(setUri(uri))}
+        onClick={() =>
+          dispatch(
+            setUri({ name, desc, image, attributes, uri, address, nftInfo })
+          )
+        }
       >
         <div className="h-full flex flex-col items-center text-center">
           <img

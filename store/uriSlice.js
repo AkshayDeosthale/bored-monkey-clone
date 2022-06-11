@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  uri: "",
-};
+const initialState = {};
 
 export const uriSlice = createSlice({
   name: "uri",

@@ -31,6 +31,7 @@ const MarketBody = ({ list }) => {
               {console.log("list", list)}
               {list?.map((li, key) => (
                 <NFTtile
+                  nftInfo={li}
                   key={key}
                   name={li.asset?.name}
                   desc={li.asset?.description}
