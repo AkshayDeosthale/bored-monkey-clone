@@ -14,6 +14,12 @@ const DetailPage = () => {
 
   return (
     <section className="text-gray-600 body-font overflow-hidden">
+      <button
+        className=" hidden md:inline-block p-3 bg-red-500 hover:bg-red-600 text-white font-bold rounded-md m-3"
+        onClick={() => router.push("/market")}
+      >
+        BACK
+      </button>
       <div className="container px-5 py-24 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
           <img
@@ -43,9 +49,6 @@ const DetailPage = () => {
             <div className="flex">
               <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
                 BUY
-              </button>
-              <button className="rounded-md px-2 w-10 h-10 bg-gray-200  border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-                BACK
               </button>
             </div>
           </div>
