@@ -26,7 +26,7 @@ const MarketBody = ({ list }) => {
               />
             ))}
 
-            <div></div>
+           
           </div>
         </div>
       </section>

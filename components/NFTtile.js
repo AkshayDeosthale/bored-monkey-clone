@@ -14,7 +14,7 @@ const NFTtile = ({ name, desc, image, attributes, uri, address, nftInfo }) => {
         onClick={() =>
           dispatch(
             setUri({ name, desc, image, attributes, uri, address, nftInfo })
-          )
+          )   
         }
       >
         <div className="h-full flex flex-col items-center text-center">

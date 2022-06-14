@@ -1,3 +1,4 @@
+import { useMarketplace } from "@thirdweb-dev/react";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -6,11 +7,23 @@ const DetailPage = () => {
   const router = useRouter();
   const NFT = useSelector((state) => state.uri);
 
+  const marketplace = useMarketplace(
+    process.env.NEXT_PUBLIC_MARKETPLACE_ADDRESS
+  );
+
   useEffect(() => {
     if (Object.keys(NFT).length === 0) {
       router.push("/market");
     }
   }, []);
+
+  const buyAsset = async() => {
+ try {
+  await marketplace.buyoutListing(NFT?.uri?.nftInfo.id,1)
+ } catch (error) {
+  console.error(error)
+ }
+  }
 
   return (
     <section className="text-gray-600 body-font overflow-hidden">
@@ -47,7 +60,7 @@ const DetailPage = () => {
             <p className="leading-relaxed">{NFT.uri?.desc}</p>
 
             <div className="flex">
-              <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+              <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded" onClick={buyAsset} >
                 BUY
               </button>
             </div>
